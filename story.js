@@ -10,7 +10,8 @@ var boatIntro = window.prompt('YOU ARE ON A BOAT. YOU DON\'T KNOW WHERE YOU ARE 
   '\nType in below \'keep sailing\', if you would like to keep sailing' +
     '\nType in below \'stop\', if you would like to dock the boat and do something else')
 boatIntro = boatIntro.toLowerCase().trim()
-if (boatIntro === 'keep sailing') {
+var r = window.confirm('Are you sure?')
+if (boatIntro === 'keep sailing' && r === true) {
   var randomChoice = Math.random()
   if (randomChoice > 0.7) {
     window.alert('YOU HAVE HIT A GLACIER AND YOU HAVE NO WAY OF SAVING YOURSELF. YOU DROWNED TO DEATH. GOOD BYE')
@@ -25,8 +26,7 @@ if (boatIntro === 'keep sailing') {
   } else {
     window.alert('YOU KEPT SAILING AND EVENTUALLY ENCOUNTERED LAND. YOU WERE FOUND BY A RESCUE TEAM AND YOU WERE TAKEN HOME. YOU SURVIVED. YAY! CONGRATS.')
   }
-}
-if (boatIntro === 'stop') {
+} else if (boatIntro === 'stop' && r === true) {
   var sailingPara = window.prompt('SO YOU DECIDED TO STOP.' +
 '\nTHAT\'S COOL TOO.' +
 '\nIF YOU WANT TO STOP AND FISH PRESS TYPE IN 1' +
@@ -44,4 +44,6 @@ if (boatIntro === 'stop') {
   } else {
     window.alert('YOU STOPPED FOR A LITTLE THEN CONTINUED SAILING AND EVENTUALLY ENCOUNTERED LAND. YOU WERE FOUND BY A RESCUE TEAM AND YOU WERE TAKEN HOME. YOU SURVIVED. YAY! CONGRATS')
   }
+} else {
+  window.alert('You pressed cancel. Refresh the page.')
 }
